@@ -1,0 +1,68 @@
+/* PDF.js Viewer Styles */
+.react-pdf__Page {
+  margin: 0 auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+.react-pdf__Page__canvas {
+  max-width: 100%;
+  height: auto !important;
+  border-radius: 8px;
+  display: block;
+}
+
+.react-pdf__Page__textContent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 0.2;
+  line-height: 1.0;
+  border-radius: 8px;
+}
+
+.react-pdf__Page__textContent span {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+}
+
+.react-pdf__Page__annotations {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+}
+
+.react-pdf__Page__annotations .annotationLayer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.react-pdf__Document {
+  display: flex;
+  justify-content: center;
+}
+
+/* Loading spinner styles */
+.react-pdf__message {
+  padding: 20px;
+  color: var(--foreground);
+}
+
+/* Ensure PDF renders properly */
+.react-pdf__Page__svg {
+  display: none;
+}
