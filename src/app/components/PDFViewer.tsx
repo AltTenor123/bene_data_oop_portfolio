@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
+import 'react-pdf/dist/Page/TextLayer.css';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
 import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from 'lucide-react';
+import workerSrc from 'pdfjs-dist/legacy/build/pdf.worker.mjs?url';
 
 interface PDFViewerProps {
   url: string;
@@ -16,29 +19,13 @@ export default function PDFViewer({ url, title }: PDFViewerProps) {
 
   // Set up the worker on component mount
   useEffect(() => {
-    const setupWorker = async () => {
-      try {
-        // Force set the worker source - this overrides any defaults
-        const workerUrl = `${window.location.origin}/pdf.worker.min.mjs`;
-
-        // Test if worker file is accessible
-        const response = await fetch(workerUrl, { method: 'HEAD' });
-        if (response.ok) {
-          pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
-          setWorkerReady(true);
-          console.log('PDF Worker configured:', workerUrl);
-        } else {
-          console.error('Worker file not accessible:', response.status);
-          setError('PDF worker file not found');
-        }
-      } catch (err) {
-        console.error('Error setting up worker:', err);
-        setError('Failed to setup PDF worker');
-      }
-    };
-
-    if (typeof window !== 'undefined') {
-      setupWorker();
+    try {
+      pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
+      setWorkerReady(true);
+      console.log('PDF Worker configured:', workerSrc);
+    } catch (err) {
+      console.error('Error setting up worker:', err);
+      setError('Failed to setup PDF worker');
     }
   }, []);
 
@@ -136,7 +123,6 @@ export default function PDFViewer({ url, title }: PDFViewerProps) {
               onLoadSuccess={onDocumentLoadSuccess}
               onLoadError={onDocumentLoadError}
               options={{
-                workerSrc: '/pdf.worker.min.mjs',
                 standardFontDataUrl: '/standard_fonts/',
               }}
               loading={

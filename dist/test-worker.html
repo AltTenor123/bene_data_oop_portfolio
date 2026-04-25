@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Worker</title>
+</head>
+<body>
+    <h1>Testing PDF Worker</h1>
+    <div id="result"></div>
+    <script>
+        fetch('/pdf.worker.min.mjs')
+            .then(response => {
+                document.getElementById('result').innerHTML = 
+                    'Worker file: ' + response.status + ' - ' + response.statusText + 
+                    '<br>Size: ' + response.headers.get('content-length') + ' bytes';
+            })
+            .catch(error => {
+                document.getElementById('result').innerHTML = 'Error: ' + error.message;
+            });
+    </script>
+</body>
+</html>
