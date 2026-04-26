@@ -132,9 +132,9 @@ export default function Home() {
           onClick={() => setShowCVModal(false)}
         >
           <div
-            className="relative w-full max-w-6xl h-[90vh] bg-card/95 backdrop-blur-xl border border-primary/30 rounded-3xl shadow-2xl shadow-primary/30 overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
+              className="relative w-full max-w-6xl h-[90vh] bg-card/95 backdrop-blur-xl border border-primary/30 rounded-3xl shadow-2xl shadow-primary/30 overflow-hidden flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+              >
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-56 h-56 bg-accent/10 rounded-full blur-3xl" />
 
@@ -147,7 +147,7 @@ export default function Home() {
                 <X className="w-6 h-6" />
               </button>
             </div>
-            <div className="relative h-[calc(100%-80px)]">
+            <div className="relative flex-1 min-h-0">
               <PDFViewer url="/cv-updated.pdf" title="Curriculum Vitae" />
             </div>
           </div>

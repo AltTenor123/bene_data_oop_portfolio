@@ -113,7 +113,7 @@ export default function Midterm() {
   const assignmentRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (section: string) => {
-    const refs: Record<string, React.RefObject<HTMLDivElement>> = {
+    const refs: Record<string, React.RefObject<HTMLDivElement | null>> = {
       activities: activitiesRef,
       seatwork: seatworkRef,
       quizzes: quizzesRef,
@@ -350,11 +350,11 @@ function Modal({ item, onClose }: { item: PortfolioItem; onClose: () => void }) 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md"
+      className="fixed inset-0 z-50 p-4 bg-black/70 backdrop-blur-md overflow-y-auto"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-card/95 backdrop-blur-xl border border-primary/30 rounded-3xl shadow-2xl shadow-primary/30"
+        className="relative w-full max-w-4xl mx-auto my-8 bg-card/95 backdrop-blur-xl border border-primary/30 rounded-3xl shadow-2xl shadow-primary/30"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
@@ -375,14 +375,14 @@ function Modal({ item, onClose }: { item: PortfolioItem; onClose: () => void }) 
           </button>
         </div>
 
-        <div className="relative p-6 space-y-6">
+        <div className="relative p-6 space-y-6 max-h-[80vh] overflow-y-auto">
           {showPDF && (
             <div className="p-6 rounded-2xl bg-muted/20 border border-border/30 shadow-lg shadow-primary/5">
               <div className="flex items-center gap-2 mb-3">
                 <FileText className="w-5 h-5 text-primary" />
                 <h3 className="text-lg">PDF Document</h3>
               </div>
-              <div className="rounded-xl overflow-hidden border border-border/30 bg-background/50 h-[700px]">
+              <div className="rounded-xl border border-border/30 bg-background/50 h-[600px] w-full">
                 <PDFViewer url={content.pdfUrl!} title={item.title} />
               </div>
             </div>
