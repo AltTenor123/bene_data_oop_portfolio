@@ -11,7 +11,7 @@ export default function Home() {
       <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
 
       <div className="relative z-10">
-        <div className="mb-8 p-8 lg:p-12 rounded-3xl bg-card/50 backdrop-blur-sm border border-border/50 shadow-2xl shadow-primary/10 hover:shadow-primary/20 hover:border-primary/30 transition-all relative overflow-hidden">
+<div className="mb-8 p-8 lg:p-12 rounded-3xl bg-card/50 backdrop-blur-sm border border-border/50 shadow-2xl shadow-primary/10 hover:shadow-[0_0_18px_rgba(37,99,235,0.35)] hover:border-primary/30 transition-all relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-56 h-56 bg-accent/5 rounded-full blur-3xl" />
 
@@ -57,11 +57,11 @@ export default function Home() {
 
             {/* Right Side - Picture */}
             <div className="hidden lg:flex justify-center items-center">
-              <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl shadow-primary/20">
+              <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 hover:shadow-[0_0_24px_rgba(37,99,235,0.45)] transition-all">
                 <img
                   src="/images/profile.jpg"
                   alt="Dean Benedict B Gomez"
-                  className="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity duration-300"
+                  className="w-full h-full object-cover opacity-60 hover:opacity-80 filter hover:brightness-110 transition-all duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-l from-transparent to-card/30" />
               </div>
@@ -78,7 +78,7 @@ export default function Home() {
         ].map((stat, index) => (
           <div
             key={index}
-            className="relative p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 shadow-lg shadow-primary/10 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105 transition-all overflow-hidden group"
+            className="relative p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 shadow-lg shadow-primary/10 hover:shadow-[0_0_18px_rgba(37,99,235,0.35)] hover:border-primary/30 hover:scale-105 transition-all overflow-hidden group"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative flex items-center gap-4">
@@ -95,7 +95,7 @@ export default function Home() {
       </div>
 
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        <div className="lg:col-span-2 p-8 lg:p-12 rounded-3xl bg-card/50 backdrop-blur-sm border border-border/50 shadow-2xl shadow-primary/10 hover:shadow-primary/20 hover:border-primary/30 transition-all relative overflow-hidden group">
+        <div className="lg:col-span-2 p-8 lg:p-12 rounded-3xl bg-card/50 backdrop-blur-sm border border-border/50 shadow-2xl shadow-primary/10 hover:shadow-[0_0_18px_rgba(37,99,235,0.35)] hover:border-primary/30 transition-all relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-48 h-48 bg-primary/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="relative">
             <h2 className="text-3xl mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -112,7 +112,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="p-8 rounded-3xl bg-card/50 backdrop-blur-sm border border-border/50 shadow-2xl shadow-primary/10 hover:shadow-primary/20 hover:border-primary/30 transition-all relative overflow-hidden group">
+        <div className="p-8 rounded-3xl bg-card/50 backdrop-blur-sm border border-border/50 shadow-2xl shadow-primary/10 hover:shadow-[0_0_18px_rgba(37,99,235,0.35)] hover:border-primary/30 transition-all relative overflow-hidden group">
           <div className="absolute bottom-0 left-0 w-40 h-40 bg-accent/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="relative">
             <div className="flex items-center gap-3 mb-6">

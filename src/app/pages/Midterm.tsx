@@ -7,6 +7,7 @@ interface PortfolioItem {
   id: string;
   title: string;
   description: string;
+  score?: string;
   category: 'activities' | 'seatwork' | 'quizzes' | 'assignment';
   tagColor: string;
   tagLabel: string;
@@ -15,80 +16,90 @@ interface PortfolioItem {
 const portfolioItems: PortfolioItem[] = [
   {
     id: 'act1',
-    title: 'Midterm Activity #1',
-    description: 'Variables - Variable tracking and reference checking with how memory changes each step of the program.',
+    title: 'Act 1',
+    score: '30/30',
+    description: 'A container used to store data values in a named memory location.',
     category: 'activities',
     tagColor: 'bg-blue-500',
     tagLabel: 'ACT1',
   },
   {
     id: 'act2',
-    title: 'Midterm Activity #2',
-    description: 'Operators - Program Making with Operators',
+    title: 'Act 2',
+    score: '30/30',
+    description: 'Operators in Java are special symbols that perform specific actions on one or more variables or values, known as operands.',
     category: 'activities',
     tagColor: 'bg-blue-500',
     tagLabel: 'ACT2',
   },
   {
     id: 'act3',
-    title: 'Midterm Activity #3',
-    description: 'Simple Wallet System - A wallet system that allows users to view balance, add money, and spend money with transaction counting.',
+    title: 'Simple Wallet System',
+    score: '30/30',
+    description: 'A wallet system that allows users to view balance, add money, and spend money with transaction counting.',
     category: 'activities',
     tagColor: 'bg-blue-500',
     tagLabel: 'ACT3',
   },
   {
     id: 'act4',
-    title: 'Midterm Activity #4',
-    description: 'Grade Evaluation System',
+    title: 'Grade Evaluation System',
+    score: '30/30',
+    description: 'This program calculates the grade of a student based on the marks on their Preliminary, Midterms, and Final.',
     category: 'activities',
     tagColor: 'bg-blue-500',
     tagLabel: 'ACT4',
   },
   {
     id: 'act5',
-    title: 'Midterm Activity #5',
-    description: 'Personal Expense Tracker',
+    title: 'Personal Expense Tracker',
+    score: '30/30',
+    description: 'A digital tool designed to automate the recording and management of individual finances.',
     category: 'activities',
     tagColor: 'bg-blue-500',
     tagLabel: 'ACT5',
   },
   {
     id: 'sw1',
-    title: 'Midterm Seatwork #1',
-    description: 'Code Tracking (Arithmetic, Logical, and Binary Operations)',
+    title: 'Sw 1',
+    score: '20/30',
+    description: 'Involves Arithmetic, Logical, and Binary Operations.',
     category: 'seatwork',
     tagColor: 'bg-cyan-400',
     tagLabel: 'SW1',
   },
   {
     id: 'sw2',
-    title: 'Midterm Seatwork #2',
-    description: 'Basic ATM System',
+    title: 'Sw 2',
+    score: '20/30',
+    description: 'A console-based application that simulates fundamental banking operations like balance inquiries, deposits, and withdrawals.',
     category: 'seatwork',
     tagColor: 'bg-cyan-400',
     tagLabel: 'SW2',
   },
   {
     id: 'sw3',
-    title: 'Midterm Seatwork #3',
-    description: 'Student Age Analyzer',
+    title: 'Sw 3',
+    score: '30/30',
+    description: 'Analyzing student age in Java involves techniques ranging from basic input/output to advanced data processing using streams.',
     category: 'seatwork',
     tagColor: 'bg-cyan-400',
     tagLabel: 'SW3',
   },
   {
     id: 'quiz1',
-    title: 'Midterm Quiz #1',
-    description: 'Questions, answers, and explanations',
+    title: 'Quiz 1',
+    score: '23/30',
+    description: 'Lesson 1 & 2: Introduction to OOP and Java Basics.',
     category: 'quizzes',
     tagColor: 'bg-indigo-500',
     tagLabel: 'QUIZ1',
   },
   {
     id: 'quiz2',
-    title: 'Midterm Quiz #2',
-    description: 'Questions, answers, and explanations',
+    title: 'Quiz 2',
+    score: '35/45',
+    description: 'Lesson 4–6: Control Flows, IO Java Classes, and Methods.',
     category: 'quizzes',
     tagColor: 'bg-indigo-500',
     tagLabel: 'QUIZ2',
@@ -96,6 +107,7 @@ const portfolioItems: PortfolioItem[] = [
   {
     id: 'exam1',
     title: 'Midterm Exam',
+    score: 'N/A',
     description: 'Reflection on Midterm Examination',
     category: 'assignment',
     tagColor: 'bg-emerald-500',
@@ -321,8 +333,15 @@ function PortfolioCard({
       </div>
 
       <div className="relative mt-8 mb-4">
-        <h3 className="text-xl mb-2 font-mono">{item.title}</h3>
-        <p className="text-sm text-muted-foreground line-clamp-2">
+        <div className="flex items-start justify-between gap-4">
+          <h3 className="text-xl mb-2 font-mono">{item.title}</h3>
+          {item.score && (
+            <span className="rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-mono">
+              {item.score}
+            </span>
+          )}
+        </div>
+        <p className="text-sm text-muted-foreground line-clamp-3">
           {item.description}
         </p>
       </div>
@@ -346,6 +365,7 @@ function Modal({ item, onClose }: { item: PortfolioItem; onClose: () => void }) 
 
   const showPDF = !!content.pdfUrl;
   const showCode = !!content.code;
+  const showQuizQA = Array.isArray(content.qa) && content.qa.length > 0;
   const showReflection = true;
 
   return (
@@ -398,6 +418,25 @@ function Modal({ item, onClose }: { item: PortfolioItem; onClose: () => void }) 
                 <pre className="text-muted-foreground whitespace-pre-wrap">
                   {content.code}
                 </pre>
+              </div>
+            </div>
+          )}
+
+          {showQuizQA && (
+            <div className="p-6 rounded-2xl bg-muted/20 border border-border/30 shadow-lg shadow-primary/5">
+              <div className="flex items-center gap-2 mb-3">
+                <FileText className="w-5 h-5 text-primary" />
+                <h3 className="text-lg">Quiz 2 Q&A</h3>
+              </div>
+              <div className="grid gap-3">
+                {content.qa!.map((qa, index) => (
+                  <div key={index} className="rounded-2xl bg-background/70 border border-border/20 p-4">
+                    <p className="text-sm font-mono text-muted-foreground">
+                      Q{index + 1}. {qa.question}
+                    </p>
+                    <p className="mt-2 text-sm text-foreground">{qa.answer}</p>
+                  </div>
+                ))}
               </div>
             </div>
           )}

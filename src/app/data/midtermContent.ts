@@ -2,6 +2,7 @@ export const midtermContent: Record<string, {
   pdfUrl?: string;
   code?: string;
   reflection: string;
+  qa?: { question: string; answer: string }[];
 }> = {
   act1: {
     pdfUrl: '/pdfs/activity1.pdf',
@@ -454,6 +455,53 @@ public class StudentAgeAnalyzerGomez {
     reflection: "This quiz provided a brief introduction to OOP concepts and Java's role as one of the most widely used object-oriented programming languages. It also touched on the history of Java and some of its basic programming structures."
   },
   quiz2: {
+    qa: [
+      { question: 'What is the purpose of parameters in a method?', answer: 'To Accept Input Values' },
+      { question: 'Which of the following best describes a Java method?', answer: 'A block of code that performs a specific task' },
+      { question: 'If an array is declared with a fixed size, can its size dynamically increase during program execution without creating a new array?', answer: 'False (In Java, an array will have a fixed size if declared with a fixed size)' },
+      { question: 'When naming methods in Java, is it acceptable to use descriptive names that reflect the method\'s functionality, such as calculateAverage()?', answer: 'True' },
+      { question: 'What do you call the list of inputs inside parentheses in a method?', answer: 'Parameters / arguments' },
+      { question: 'In a 2D array representing a table, does the first index represent the row while the second index represents the column?', answer: 'True' },
+      { question: 'When working with arrays, can accessing an index that does not exist lead to a runtime error?', answer: 'True' },
+      { question: 'What is a 2D array?', answer: 'An array of arrays' },
+      { question: 'If a method is declared as private, can it still be accessed directly from another class outside its package?', answer: 'False (A private method cannot be accessed by any other class except within its own class)' },
+      { question: 'If a method is declared as static, can it be called without creating an object of the class?', answer: 'True' },
+      { question: 'What does Arrays.sort() do?', answer: 'Sorts array elements' },
+      { question: 'What will name.toUpperCase() do?', answer: 'Convert string to uppercase' },
+      { question: 'When designing a method that only prints output, should it be declared with a void return type?', answer: 'True' },
+      { question: 'Which of the following is a predefined method?', answer: 'length()' },
+      { question: 'If a method has parameters but no arguments are passed during the method call, will the program execute correctly?', answer: 'False (Missing required values needed to run)' },
+      { question: 'Which method is used to read an entire line using Scanner?', answer: 'nextLine()' },
+      { question: 'If nextLine() is used immediately after nextInt(), will it always correctly capture the next line?', answer: 'False (It may capture the leftover newline from nextInt())' },
+      { question: 'Which of the following is required to use the Console class?', answer: 'java.io.Console library' },
+      { question: 'If a developer uses nextFloat() to read an integer value such as 10, will the program still accept and convert it into a float?', answer: 'True' },
+      { question: 'Which type of input allows users to provide data through the keyboard while a program is running?', answer: 'Keyboard interaction' },
+      { question: 'Which class wraps System.in to read input in BufferedReader?', answer: 'InputStreamReader' },
+      { question: 'Which command runs a compiled Java program?', answer: 'java filename' },
+      { question: 'What Scanner method reads double values?', answer: 'nextDouble()' },
+      { question: 'If the Scanner class is not closed after usage, will it potentially lead to memory leaks or resource issues?', answer: 'True' },
+      { question: 'If a programmer calls sc.next(), will it correctly read a full name with spaces such as "Juan Dela Cruz"?', answer: 'False (next() only reads one word at a time)' },
+      { question: 'What method is used to read a string from Console?', answer: 'nextLine() / next()' },
+      { question: 'What is the name of the stream used for standard input in Java?', answer: 'System.in' },
+      { question: 'Which of the following refers to data provided to a computer system for processing?', answer: 'Input' },
+      { question: 'How are command line inputs treated by the JVM?', answer: 'As strings' },
+      { question: 'If a program relies on command line input, can it still run successfully even if no arguments are provided?', answer: 'True' },
+      { question: 'What is the main purpose of control flow statements in Java?', answer: 'Control execution order' },
+      { question: 'Control flow statements manage execution order.', answer: 'True' },
+      { question: 'What is a nested loop?', answer: 'Loop inside loop' },
+      { question: 'What is required for a loop to continue?', answer: 'True condition' },
+      { question: 'What will be output? for(int i=1;i<=3;i++){ System.out.print(i); }', answer: '123' },
+      { question: 'What does break do?', answer: 'Exit loop' },
+      { question: 'Which of the following is NOT a type of control structure?', answer: 'Compilation' },
+      { question: 'Which is used when multiple conditions are checked sequentially?', answer: 'if-else-if' },
+      { question: 'Keyword that skips the current iteration.', answer: 'continue' },
+      { question: 'An if statement inside another if statement.', answer: 'nested if' },
+      { question: 'Loop component that updates a variable.', answer: 'increment/decrement' },
+      { question: 'Which loop is best when iterations are unknown?', answer: 'while' },
+      { question: 'What type of loop is for(;;)?', answer: 'infinite loop' },
+      { question: 'Statement used for multiple selections.', answer: 'switch' },
+      { question: 'Statement used when condition is false.', answer: 'else' },
+    ],
     reflection: "This quiz tested my memorization about Java Concepts, the basics, statements, control flow, methods, and input, which enables me to know the things that I need to train more. In this way, it enables me to identify the things that I need to focus on and in that way I'll get to improve myself more."
   },
   exam1: {

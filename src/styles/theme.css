@@ -136,6 +136,40 @@
     scroll-behavior: smooth;
   }
 
+  body {
+    position: relative;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent 0%, rgba(37, 99, 235, 0.06) 45%, rgba(37, 99, 235, 0.04) 50%, rgba(37, 99, 235, 0.06) 55%, transparent 100%);
+    background-size: 100% 200%;
+    opacity: 0.18;
+    animation: scanline 20s linear infinite;
+  }
+
+  @keyframes scanline {
+    0% {
+      background-position: 0 -20%;
+    }
+    100% {
+      background-position: 0 120%;
+    }
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select,
+  summary {
+    transition: all 0.3s ease;
+  }
+
   @keyframes float {
     0%, 100% {
       transform: translateY(0px);
