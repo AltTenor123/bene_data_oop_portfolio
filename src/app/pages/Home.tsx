@@ -15,41 +15,56 @@ export default function Home() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-56 h-56 bg-accent/5 rounded-full blur-3xl" />
 
-          <div className="relative space-y-6">
-            <div>
-              <p className="text-sm uppercase tracking-widest text-muted-foreground mb-2">
-                Featuring...
+          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left Side - Text Content */}
+            <div className="space-y-6">
+              <div>
+                <p className="text-sm uppercase tracking-widest text-muted-foreground mb-2">
+                  Featuring...
+                </p>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl mb-6 leading-tight">
+                  <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
+                    Bene_Data
+                  </span>
+                </h1>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm shadow-lg shadow-primary/20">
+                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  <span className="text-primary font-mono">Object-Oriented Programming</span>
+                </div>
+              </div>
+
+              <p className="text-muted-foreground text-lg max-w-2xl">
+                OOP Portfolio of Dean Benedict B Gomez from BSIT 2-1
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl mb-6 leading-tight">
-                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
-                  Bene_Data
-                </span>
-              </h1>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm shadow-lg shadow-primary/20">
-                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-primary font-mono">Object-Oriented Programming</span>
+
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Link
+                  to="/midterm"
+                  className="px-6 py-3 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 hover:shadow-xl hover:shadow-primary/40 transition-all inline-flex items-center gap-2"
+                >
+                  View Portfolio
+                  <FileCode className="w-4 h-4" />
+                </Link>
+                <button
+                  onClick={() => setShowCVModal(true)}
+                  className="px-6 py-3 rounded-xl border-2 border-primary/50 text-primary hover:bg-primary/10 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-all inline-flex items-center gap-2"
+                >
+                  View CV
+                  <Eye className="w-4 h-4" />
+                </button>
               </div>
             </div>
 
-            <p className="text-muted-foreground text-lg max-w-3xl">
-              OOP Portfolio of Dean Benedict B Gomez from BSIT 2-1
-            </p>
-
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Link
-                to="/midterm"
-                className="px-6 py-3 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 hover:shadow-xl hover:shadow-primary/40 transition-all inline-flex items-center gap-2"
-              >
-                View Portfolio
-                <FileCode className="w-4 h-4" />
-              </Link>
-              <button
-                onClick={() => setShowCVModal(true)}
-                className="px-6 py-3 rounded-xl border-2 border-primary/50 text-primary hover:bg-primary/10 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-all inline-flex items-center gap-2"
-              >
-                View CV
-                <Eye className="w-4 h-4" />
-              </button>
+            {/* Right Side - Picture */}
+            <div className="hidden lg:flex justify-center items-center">
+              <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl shadow-primary/20">
+                <img
+                  src="/images/profile.jpg"
+                  alt="Dean Benedict B Gomez"
+                  className="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent to-card/30" />
+              </div>
             </div>
           </div>
         </div>
@@ -123,7 +138,7 @@ export default function Home() {
               ))}
             </ul>
           </div>
-        </div>
+        </div>  
       </div>
 
       {showCVModal && (
